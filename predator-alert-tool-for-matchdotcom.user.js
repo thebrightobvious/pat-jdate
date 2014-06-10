@@ -5,12 +5,12 @@
  * @author maymay <bitetheappleback@gmail.com>
  */
 // ==UserScript==
-// @name           Predator Alert Tool for ChristianMingle (PAT-ChristianMingle)
+// @name           Predator Alert Tool for Match.com (PAT-Match.com)
 // @version        0.1
-// @namespace      com.maybemaimed.pat.christianmingle
-// @updateURL      https://github.com/meitar/pat-christianmingle/raw/master/predator-alert-tool-for-christianmingle.user.js
-// @description    Alerts you of people who have allegedly assaulted others as you browse ChristianMingle. Empowers you to anonymously report a consent violation perpetrated by a ChristianMingle user.
-// @include        http://www.christianmingle.com/*
+// @namespace      mailto:thebrightobvious@gmail.com
+// @updateURL      https://github.com/thebrightobvious/pat-matchdotcom/raw/master/predator-alert-tool-for-matchdotcom.user.js
+// @description    Alerts you of people who have allegedly assaulted others as you browse Match.com. Empowers you to anonymously report a consent violation perpetrated by a Match.com user.
+// @include        http://www.match.com/*
 // @include        http://www.creepshield.com/search*
 // @grant          GM_log
 // @grant          GM_xmlhttpRequest
@@ -29,7 +29,7 @@ FL_ASL.getUserProfile = function (id) {
         FL_ASL.users[id] = {};
         GM_xmlhttpRequest({
             'method': 'GET',
-            'url': 'http://www.christianmingle.com/profile/',
+            'url': 'http://www.match.com/profile/',
             'onload': function (response) {
                 FL_ASL.users[id].profile_html = response.responseText;
             }
