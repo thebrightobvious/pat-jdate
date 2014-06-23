@@ -359,7 +359,7 @@ FAADE.creepShield.getDisclaimerHtml = function () {
     return '<p>This feature is powered by the facial recognition service at <a href="http://creepshield.com/">CreepShield.com</a>. The registered sex offender database is <em>not</em> always a reliable source of information. <a href="https://www.eff.org/deeplinks/2011/04/sexual-predators-please-check-here-match-com-s">Learn more</a>.</p>';
 };
 FAADE.creepShield.displayOnFetLife = function (creep_data) {
-    var base_el = document.querySelector('#profile_photo').parentNode;
+    var base_el = document.querySelector('#photo-primary').parentNode;
     var my_el = document.createElement('div');
     my_el.setAttribute('class', 'pat-fetlife-creepshield-results');
     var html = '<h3>Possible Registered Sex Offender matches:</h3>';
@@ -379,7 +379,7 @@ FAADE.creepShield.displayOnFetLife = function (creep_data) {
     base_el.appendChild(my_el);
 };
 FAADE.creepShield.displayError = function (msg) {
-    var base_el = document.querySelector('#profile_photo').parentNode;
+    var base_el = document.querySelector('#photo-primary').parentNode;
     var my_el = document.createElement('div');
     my_el.setAttribute('class', 'pat-fetlife-creepshield-results error');
     var html = '<p>CreepShield returned an error:</p>';
