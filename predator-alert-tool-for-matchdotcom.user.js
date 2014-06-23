@@ -7,7 +7,7 @@
 // ==UserScript==
 // @name           Predator Alert Tool for Match.com (PAT-Match.com)
 // @version        0.1
-// @namespace      mailto:thebrightobvious@gmail.com
+// @namespace      com.maybemaimed.pat.matchdotcom
 // @updateURL      https://github.com/thebrightobvious/pat-matchdotcom/raw/master/predator-alert-tool-for-matchdotcom.user.js
 // @description    Alerts you of people who have allegedly assaulted others as you browse Match.com. Empowers you to anonymously report a consent violation perpetrated by a Match.com user.
 // @include        http://www.match.com/*
