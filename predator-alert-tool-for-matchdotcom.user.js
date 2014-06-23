@@ -29,7 +29,7 @@ FL_ASL.getUserProfile = function (id) {
         FL_ASL.users[id] = {};
         GM_xmlhttpRequest({
             'method': 'GET',
-            'url': 'http://www.match.com/profile/',
+            'url': 'http://www.match.com/Profile/Display/About/?uid=',
             'onload': function (response) {
                 FL_ASL.users[id].profile_html = response.responseText;
             }
