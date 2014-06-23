@@ -53,8 +53,18 @@ FAADE.log = function (msg) {
     else { GM_log('FETLIFE FAADE: ' + msg); }
 };
 
+//
+// Global utility functions.
+//
+function getCookie (n) {
+    try {
+        return unescape(document.cookie.match('(^|;)?'+n+'=([^;]*)(;|$)')[2]).split('&')[0];
+    } catch (e) {
+        return null;
+    }
+};
+
 // Initializations.
-var uw = (unsafeWindow) ? unsafeWindow : window ; // Help with Chrome compatibility?
 GM_addStyle('\
 .faade_alleged_abuser {\
     display: inline-block;\
@@ -105,7 +115,7 @@ FAADE.init = function () {
         FAADE.clearCookies();
         return;
     }
-    FL_ASL.getUserProfile(uw.my_username); // run early
+    FL_ASL.getUserProfile(getCookie('uid')); // run early
     //FAADE.injectDialog();
     FAADE.abuser_database = FAADE.getValue('abuser_database', false);
     if (FAADE.abuserDatabaseExpired()) {
@@ -246,7 +256,7 @@ FAADE.broadcastNewProximalReports = function (doc) {
         }
         FAADE.log('Total of ' + num_reports + ' new reports since last check.');
 
-        var user_loc = FAADE.getLocationFromProfileHtml(FL_ASL.users[uw.my_username].profile_html);
+        var user_loc = FAADE.getLocationFromProfileHtml(FL_ASL.users[getCookie('uid')].profile_html);
         FAADE.log('Current user location seems to be ' + user_loc.join(', ') + '.');
 
         // Loop over all new records one by one
@@ -408,7 +418,7 @@ FAADE.main = function () {
     // TODO: Refactor this, it's kludgy.
     setTimeout(function() {
         FAADE.log('Running time-delayed function.');
-        if (FL_ASL.users[uw.my_username].profile_html) {
+        if (FL_ASL.users[getCookie('uid')].profile_html) {
             FAADE.log('We have the current user\'s FetLife profile HTML. Running broadcast checks.');
             //FAADE.broadcastNewProximalReports(doc);
         }
@@ -482,13 +492,13 @@ FAADE.main = function () {
     var user_links = [];
     for (i = 0; i < document.links.length; i++) {
         var l = document.links[i].href.match(/\/search\/details\.html?u=(\w+)/);
-        if ( l && (l[1] !== uw.my_username.toString()) ) {
+        if ( l && (l[1] !== getCookie('uid').toString()) ) {
             user_links.push(document.links[i]);
         }
     }
     var more_l = document.querySelectorAll('.username a');
     for (i = 0; i < more_l.length; i++) {
-        if (more_l[i].textContent.trim() !== uw.my_username.toString()) {
+        if (more_l[i].textContent.trim() !== getCookie('uid').toString()) {
             user_links.push(more_l[i]);
         }
     }
