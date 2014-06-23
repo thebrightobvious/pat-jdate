@@ -427,9 +427,9 @@ FAADE.main = function () {
     // Are we on a user profile page?
     if (window.location.href.match(/Profile\/Display\/About\/\?uid=([^&]+)/)) {
 
-        var profile_nick = document.querySelector('h2.spr-parent').childNodes[0].textContent.match(/\S+/)[0];
-        var id_in_url = profile_nick;
-        var userpic_el = document.querySelector('#main_photo');
+        var profile_nick = document.querySelector('.basics h2').textContent;
+        var id_in_url = window.location.href.match(/Profile\/Display\/About\/\?uid=([^&]+)/)[1];
+        var userpic_el = document.querySelector('#primary-image');
         // If we can grab this person's userpic, send it off to CreepSheild for testing.
         if (userpic_el) {
             var userpic_src = userpic_el.getAttribute('src');
