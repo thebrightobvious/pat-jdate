@@ -425,7 +425,7 @@ FAADE.main = function () {
     }, 5000); // give us a few seconds to grab the current user's FetLife profile HTML.
 
     // Are we on a user profile page?
-    if (window.location.href.match(/details\.html\?u=(\w+)$/)) {
+    if (window.location.href.match(/Profile\/Display\/About\/\?uid=([^&]+)/)) {
 
         var profile_nick = document.querySelector('h2.spr-parent').childNodes[0].textContent.match(/\S+/)[0];
         var id_in_url = profile_nick;
