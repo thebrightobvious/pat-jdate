@@ -438,11 +438,11 @@ FAADE.main = function () {
         }
 
         // If we're not viewing our own profile page, insert a report link.
-        usr_ops = document.querySelector('.profileComm');
+        usr_ops = document.querySelector('.user-cta');
         if (usr_ops) {
-            var li = document.createElement('li');
-            li.appendChild(FAADE.createAbuseReportLink(id_in_url, profile_nick))
-            usr_ops.appendChild(li);
+            var div = document.createElement('div');
+            div.appendChild(FAADE.createAbuseReportLink(id_in_url, profile_nick))
+            usr_ops.appendChild(div);
         }
 
         // If this is a profile page of an alleged abuser,
