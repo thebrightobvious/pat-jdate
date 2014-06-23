@@ -231,7 +231,7 @@ FAADE.injectDialog = function () {
 FAADE.getLocationFromProfileHtml = function (html) {
     var parser = new DOMParser();
     var doc = parser.parseFromString(html, 'text/html');
-    return doc.querySelector('.profile-info tr:nth-child(2) .field-info').textContent.split(', '); // split with comma AND space
+    return doc.querySelector('.basics').textContent.split('|')[1].trim().split(', '); // split with comma AND space
 };
 
 FAADE.broadcastNewProximalReports = function (doc) {
